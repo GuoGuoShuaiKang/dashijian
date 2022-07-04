@@ -32,7 +32,7 @@ $(function(){
     // 监听注册表单的提交事件
     $('#form_reg').on('submit',function(e) {
         e.preventDefault();
-        $.post('http://www.liulongbin.top:3007/api/reguser',
+        $.post('/api/reguser',
         {username:$('#form_reg [name=username]').val(),
         password:$('#form_reg [name=password]').val()},
         function(res) {
@@ -50,7 +50,7 @@ $(function(){
         // 阻止默认提交行为
         e.preventDefault();
         $.ajax({
-            url:'http://www.liulongbin.top:3007/api/login',
+            url:'/api/login',
             method:'POST',
             // 快速获取表单中的数据
             data:$(this).serialize(),
