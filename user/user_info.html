@@ -16,6 +16,8 @@
       <div class="layui-card-body">
         <!-- form 表单区域 -->
         <form class="layui-form" lay-filter="formUserInfo">
+          <!-- 这是隐藏域 -->
+          <input type="hidden" name="id"/> 
           <div class="layui-form-item">
             <label class="layui-form-label">登录名称</label>
             <div class="layui-input-block">
@@ -65,7 +67,7 @@
               <button class="layui-btn" lay-submit lay-filter="formDemo">
                 提交修改
               </button>
-              <button type="reset" class="layui-btn layui-btn-primary">
+              <button type="reset" class="layui-btn layui-btn-primary" id="btnReset">
                 重置
               </button>
             </div>
@@ -75,10 +77,10 @@
     </div>
     <!-- 导入 layui 的js文件 -->
     <script src="/assets/lib/layui/layui.all.js"></script>
-    <!-- 引入自己封装的 baseAPI 文件 -->
-    <script src="/assets/js/baseAPI.js"></script>
     <!-- 导入 jQuery 的js文件 -->
     <script src="/assets/lib/jquery.js"></script>
+    <!-- 引入自己封装的 baseAPI 文件 -->
+    <script src="/assets/js/baseAPI.js"></script>
     <!-- 导入自己的 js 文件 -->
     <script src="/assets/js/user/user_info.js"></script>
   </body>

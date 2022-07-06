@@ -36,7 +36,7 @@ function getUserInfo() {
             }
             // 调用 renderAvatar 渲染用户的头像
             renderAvatar(res.data)
-            console.log(res);
+            
         }
         
 
