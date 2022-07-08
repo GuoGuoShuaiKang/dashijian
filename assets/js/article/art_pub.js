@@ -80,10 +80,7 @@ $(function () {
                 // 将文件对象，存储到 fd 中
                 fd.append('cover_img', blob)
                 // 发起 ajax 数据请求
-                fd.forEach(function(v,k) {
-                    console.log(k,v);
-                })
-                console.log(11);
+               
                 publishArticle(fd)
             })
 

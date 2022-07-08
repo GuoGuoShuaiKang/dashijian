@@ -91,8 +91,11 @@ $(function () {
             count: total,
             limit: q.pagesize,
             curr: q.pagenum,
-            jump: function (obj,first) {
-                q.pagenum = obj.curr              
+            layout: ['count', 'limit', 'prev', 'page', 'next', 'skip'],
+            limits: [2, 3, 5, 10],
+            jump: function (obj, first) {
+                q.pagenum = obj.curr
+                q.pagesize = obj.limit
                 if (!first) {
                     //do something
                     initTable()
@@ -100,4 +103,32 @@ $(function () {
             }
         })
     }
+    // 
+    // 删除文章
+    // 通过代理的形式为删除按钮绑定点击事件
+    $('tbody').on('click', '.btn-delete', function () {
+        let len = $('.btn-delete').length
+        let id = $(this).attr('data-id')
+        layer.confirm('确认删除?', { icon: 3, title: '提示' }, function (index) {
+            $.ajax({
+                type: 'GET',
+                url: '/my/article/delete/' + id,
+                success: function (res) {
+
+                    if (res.status !== 0) {
+                        return layer.msg('删除文章失败')
+                    }
+                    layer.msg('删除文章成功')
+                    if (len === 1) {
+                        q.pagenum = q.pagenum === 1 ? 1 : q.pagenum - 1
+                    }
+
+                    initTable()
+                }
+            })
+
+            layer.close(index);
+
+        });
+    })
 })
